@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:property name="clearance" value="0.074" />
+	<link name="base_link">
+		<inertial>
+      			<origin xyz="0.00324310262857996 0.00100884866338095 0.00844749410443346" rpy="0 0 0" />
+      			<mass value="0.806772651118244" />
+      			<inertia 
+      				ixx="0.00119589539435053" 
+      				ixy="-3.80726330077473E-05" 
+      				ixz="-1.55080833977791E-05"
+        			iyy="0.00192992230080581" 
+        			iyz="1.25471379987466E-07" 
+        			izz="0.00293924968820423" />
+   		</inertial>
+   		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+      			<geometry>
+        			<mesh filename="package://rover_description/meshes/base_link.STL" />
+      			</geometry>
+			<material name="White">
+				<color rgba="1.0 1.0 1.0 1.0"/>
+			</material>
+    		</visual>
+    		<collision>
+      			<origin xyz="0 0 0" rpy="0 0 0" />
+      			<geometry>
+        			<mesh filename="package://rover_description/meshes/base_link.STL" />
+      			</geometry>
+    		</collision>
+  	</link>
+
+	<link name="base_footprint">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<cylinder length="0.001" radius="0.15" />
+			</geometry>
+			<material name="Blue">
+				<color rgba="0.0 0.0 1.0 1.0"/>
+			</material>
+		</visual>
+	</link>
+	<joint name="base_footprint_to_base_link" type="fixed">
+		<origin xyz="0 0 ${clearance}" rpy="0 0 0" />
+		<parent link="base_footprint" />
+		<child link="base_link" />
+	</joint>
+
+	<!-- Wheels -->
+	<xacro:include filename="$(find rover_description)/urdf/rover_front_left_wheel.xacro" />
+	<xacro:include filename="$(find rover_description)/urdf/rover_front_right_wheel.xacro" />	
+	<xacro:include filename="$(find rover_description)/urdf/rover_rear_left_wheel.xacro" />
+	<xacro:include filename="$(find rover_description)/urdf/rover_rear_right_wheel.xacro" />
+</robot>  
+

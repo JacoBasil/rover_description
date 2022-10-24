@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<link name="rover_front_left_wheel">
+    		<inertial>
+      			<origin xyz="3.09272293330665E-08 -0.00064488566976089 1.0226299418381E-08" rpy="0 0 0" />
+      			<mass value="0.502189682897923" />
+     			<inertia 
+     				ixx="0.000172572026884728" 
+     				ixy="4.01219647492642E-12" 
+     				ixz="-3.07282065806655E-11" 
+     				iyy="0.000248009752051545" 
+     				iyz="4.62315976799862E-11" 
+     				izz="0.000172572214942148" />
+    		</inertial>
+    		<visual>
+     			<origin xyz="0 0 0" rpy="0 0 0" />
+      			<geometry>
+        			<mesh filename="package://rover_description/meshes/rover_front_left_wheel.STL" />
+      			</geometry>
+		      	<material name="Green">
+				<color rgba="0.0 1.0 0.0 1.0"/>
+			</material>
+    		</visual>
+    		<collision>
+      			<origin xyz="0 0 0" rpy="0 0 0" />
+	      		<geometry>
+				<mesh filename="package://rover_description/meshes/rover_front_left_wheel.STL" />
+	      		</geometry>
+    		</collision>
+  	</link>
+	<joint name="front_left_wheel_to_base" type="continuous">
+	    	<origin xyz="0.0599999999999999 0.1135 -0.024" rpy="0 0 0" />
+	    	<parent link="base_link" />
+	    	<child link="rover_front_left_wheel" />
+	    	<axis xyz="0 -1 0" />
+	</joint>
+</robot>
