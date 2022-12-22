@@ -28,10 +28,33 @@
 	      		</geometry>
     		</collision>
   	</link>
+	
+	<link name="front_left_wheel">
+		<visual>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_width}" radius="${wheel_radius}"/>
+			</geometry>
+			<material name="Green" />
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="${PI/2} 0 0" />
+			<geometry>
+				<cylinder length="${wheel_width}" radius="${wheel_radius}"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="front_left_wheel_to_rover_front_left_wheel" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="front_left_wheel" />
+		<child link="rover_front_left_wheel" />
+	</joint>
+
 	<joint name="front_left_wheel_to_base" type="continuous">
 	    	<origin xyz="0.0599999999999999 0.1135 -0.024" rpy="0 0 0" />
 	    	<parent link="base_link" />
-	    	<child link="rover_front_left_wheel" />
+	    	<child link="front_left_wheel" />
 	    	<axis xyz="0 -1 0" />
 	</joint>
 </robot>
