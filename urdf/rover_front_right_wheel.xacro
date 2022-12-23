@@ -53,7 +53,7 @@
 
 	<joint name="front_right_wheel_to_base" type="continuous">
 		<origin xyz="0.0599999999999999 -0.1135 -0.024" rpy="0 0 0" />
-		<parent link="base_link" />
+		<parent link="rover_base" />
 		<child link="front_right_wheel" />
 		<axis xyz="0 1 0" />
 	</joint>
