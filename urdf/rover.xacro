@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:property name="clearance" value="0.074" />
+	<xacro:property name="clearance" value="0.07125" />
 	<xacro:property name="wheel_radius" value="0.0485"/>
-	<xacro:property name="wheel_separation_x" value="0.128"/>
-	<xacro:property name="wheel_separation_y" value="0.128"/>
+	<xacro:property name="wheel_separation_x" value="0.12"/>
+	<xacro:property name="wheel_separation_y" value="0.225"/>
 	<xacro:property name="wheel_width" value="0.0447"/>
 	<xacro:property name="PI" value="3.1415926"/>
 
-	<link name="base_link">
+	<link name="rover_base">
 		<inertial>
       			<origin xyz="0.00324310262857996 0.00100884866338095 0.00844749410443346" rpy="0 0 0" />
       			<mass value="0.806772651118244" />
@@ -36,6 +37,21 @@
     		</collision>
   	</link>
 
+	<link name="base_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<sphere radius="0.001" />
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="base_link_to_rover_base" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="rover_base" />
+	</joint>
+
 	<link name="base_footprint">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -47,6 +63,7 @@
 			</material>
 		</visual>
 	</link>
+
 	<joint name="base_footprint_to_base_link" type="fixed">
 		<origin xyz="0 0 ${clearance}" rpy="0 0 0" />
 		<parent link="base_footprint" />
