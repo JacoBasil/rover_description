@@ -22,7 +22,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rover_urdf_v2/meshes/rover_lidar.STL" />
+          filename="package://rover_description/meshes/rover_lidar.STL" />
       </geometry>
       <material
         name="">
@@ -36,7 +36,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rover_urdf_v2/meshes/rover_lidar.STL" />
+          filename="package://rover_description/meshes/rover_lidar.STL" />
       </geometry>
     </collision>
   </link>
