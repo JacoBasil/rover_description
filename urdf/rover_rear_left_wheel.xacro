@@ -52,9 +52,9 @@
 	</joint>
 
 	<joint name="rear_left_wheel_to_base" type="continuous">
-	    	<origin xyz="-0.0599999999999999 0.1135 -0.0240000000000001" rpy="0 0 0" />
-	    	<parent link="rover_base" />
-	    	<child link="rear_left_wheel" />
-	    	<axis xyz="0 -1 0" />
+	    <origin xyz="-0.0599999999999999 0.1135 -0.0240000000000001" rpy="0 0 0" />
+	    <parent link="rover_base" />
+	    <child link="rear_left_wheel" />
+	    <axis xyz="0 1 0" />
 	</joint>
 </robot>

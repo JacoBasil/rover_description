@@ -1,12 +1,8 @@
 <launch>
 	<param name="robot_description" command="$(find xacro)/xacro '$(find rover_description)/urdf/rover.xacro' --inorder" />
-	<node pkg="rosserial_python" type="serial_node.py" name="arduino_serial" output="screen">
-    	<param name="port" value="/dev/ttyACM1"/>
-    	<param name="baud" value="1000000"/>
-  	</node>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
-	<include file="$(find rover_firmware)/launch/rover_pid.launch" />
+	<include file="$(find rover_firmware)/launch/rover_driver.launch" />
 	<include file="$(find rover_base)/launch/rover_base.launch" />
 	<include file="$(find rover_control)/launch/rover_control.launch" />
-
+	<include file="$(find rover_teleop)/launch/rover_teleop.launch" />
 </launch>
