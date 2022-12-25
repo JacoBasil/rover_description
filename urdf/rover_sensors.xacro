@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="rover_lidar">
+    <inertial>
+      <origin
+        xyz="-0.000333660893866883 0.000214420745294569 -0.120155841515425"
+        rpy="0 0 0" />
+      <mass
+        value="3.91503348721012" />
+      <inertia
+        ixx="0.075491436815118"
+        ixy="0.0124471758174925"
+        ixz="0.000225064890393523"
+        iyy="0.0198532311590111"
+        iyz="-2.69682299538747E-05"
+        izz="0.0873555392425247" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_urdf_v2/meshes/rover_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_urdf_v2/meshes/rover_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_to_base"
+    type="fixed">
+    <origin
+      xyz="0 0 0.104"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rover_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

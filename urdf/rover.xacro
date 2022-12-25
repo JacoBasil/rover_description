@@ -75,5 +75,6 @@
 	<xacro:include filename="$(find rover_description)/urdf/rover_front_right_wheel.xacro" />	
 	<xacro:include filename="$(find rover_description)/urdf/rover_rear_left_wheel.xacro" />
 	<xacro:include filename="$(find rover_description)/urdf/rover_rear_right_wheel.xacro" />
+	<xacro:include filename="$(find rover_description)/urdf/rover_sensors.xacro" />
 </robot>  
 
